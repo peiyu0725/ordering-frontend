@@ -1,8 +1,8 @@
 import React from 'react';
 import { useRouter } from 'next/router'
 import PropTypes from 'prop-types';
-import styles from '../styles/Layout.module.sass'
-import { AppBar, Toolbar, Typography, useScrollTrigger, IconButton, Badge, Tooltip } from '@material-ui/core';
+import styles from '../styles/page/Layout.module.sass'
+import { AppBar, Toolbar, Typography, useScrollTrigger, IconButton, Badge, Tooltip, Avatar } from '@material-ui/core';
 import { AccountCircle, ShoppingCart, LibraryAdd } from '@material-ui/icons';
 
 const Header = (props) => {
@@ -36,7 +36,9 @@ const Header = (props) => {
         <ElevationScroll {...props}>
             <AppBar className={styles.appBar}>
                 <Toolbar className={styles.toolBar}>
-                    <Typography className={styles.logo} variant="h6" onClick={onDirectHome}>NEXT</Typography>
+                    <Typography className={styles.logo} variant="h6" onClick={onDirectHome}>
+                        <Avatar variant="rounded" alt="logo" src="/image/logo.png" />
+                    </Typography>
                     <div className={styles.rightBtnWrapper}>
                         <Tooltip title="Import" aria-label="import">
                             <IconButton color="inherit">

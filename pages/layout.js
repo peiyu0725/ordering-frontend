@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head'
 import PropTypes from 'prop-types';
-import styles from '../styles/Layout.module.sass'
+import styles from '../styles/page/Layout.module.sass'
 import { CssBaseline, Toolbar, Container, useScrollTrigger, Zoom, Fab } from '@material-ui/core';
 import { KeyboardArrowUp } from '@material-ui/icons';
 import Header from './header'
@@ -47,15 +47,14 @@ const Layout = (props) => {
                 <CssBaseline />
                 <Header></Header>
                 <Toolbar id="back-to-top-anchor" />
-                <Container>
+                {/* <Container> */}
                     <main className={styles.main}>
                         {props.children}
                     </main>
-                </Container>
-                <ScrollTop {...props}>
-                    <Fab size="small" aria-label="scroll back to top" className={styles.scrollTopFab}>
-                        <KeyboardArrowUp />
-                    </Fab>
+                {/* </Container> */}
+                <ScrollTop>
+                    <div className={styles.scrollTopFab} aria-label="scroll back to top"></div>
+                    {/* <Fab size="small"  /> */}
                 </ScrollTop>
             </React.Fragment>
         </div>
