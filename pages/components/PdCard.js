@@ -1,24 +1,21 @@
 import { Card, CardMedia, CardContent } from '@material-ui/core';
 import styles from '../../styles/components/PdCard.module.sass'
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const PdCard = (props) => {
     const handleImageError = (e) => {
-        console.log(e)
-        // e.target.onerror = null;
-        // // e.target.style.display = 'none'
-        // e.target.src = "https://dummyimage.com/250x150/bababa/ffffff&text=+++IMAGE+NOT+FOUND"
+        e.target.onerror = null;
+        e.target.src = "/image/image_not_found.png"
     }
     return (
-        <Card className={styles.pdCard}>
-            <LazyLoadImage className={styles.pdCardMedia} src={props.url} width="100%" effect="blur" placeholderSrc={props.url}/>
-            {/* <CardMedia
+        <Card className={styles.pdCard} onClick={props.onClick}>
+            <CardMedia
                 component="img"
                 className={styles.pdCardMedia}
                 image={props.url}
+                width="176px"
+                height="105.6px"
                 onError={handleImageError}
-            /> */}
+            />
             <CardContent classes={{
                 root: styles.cardContent
             }}>

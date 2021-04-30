@@ -7,4 +7,12 @@ module.exports = {
   images: {
     domains: ['picsum.photos']
   },
+  async rewrites() {
+    return [
+      {
+        source: '/api',
+        destination: 'http://localhost:3001/api',
+      },
+    ]
+  },
 }

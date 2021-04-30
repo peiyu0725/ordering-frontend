@@ -4,19 +4,23 @@ import { Search } from '@material-ui/icons';
 import PdCard from './components/PdCard'
 import { useState, useEffect } from 'react';
 import clsx from  'clsx';
+import { fetchMenu } from '../apis/menus'
+import { useRouter } from 'next/router'
 
 const Home = () => {
+  const router = useRouter()
   const [imageList, setImageList] = useState([])
-  const getRandom = (conut, min, max) => {
-    let list = []
-    for (let i = 1; i <= conut; i++) {
-      list.push(Math.floor(Math.random() * (max - min + 1)) + min)
-    }
-    setImageList(list)
+  const initData = async () => {
+    const { data } = await fetchMenu()
+    setImageList(data)
   };
 
+  const directProduct = (id) => {
+    router.push(`/product/${id}`)
+  }
+
   useEffect(() => {
-    getRandom(20, 1, 1000)
+    initData()
   }, [])
 
   return (
@@ -37,9 +41,9 @@ const Home = () => {
       </div>
       <div className={clsx(styles.contentWrapper, styles.darkWrapper)}>
           <div className={styles.cardWrapper}>
-            {imageList.map((item, index) => (
-              <PdCard url={`https://picsum.photos/id/${item}/250/150`} key={item}>
-                <div className={styles.cardTitle}>{`Image ${item}`}</div>
+            {imageList.map(item => (
+              <PdCard url={item.image} key={item.id} onClick={() => directProduct(item.id)}>
+                <div className={styles.cardTitle}>{item.name}</div>
               </PdCard>
             ))}
           </div>

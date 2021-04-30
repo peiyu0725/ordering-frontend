@@ -6,6 +6,7 @@
     .cartTitle
         width: 1024px
         max-width: 90vw
+        font-size: 1.5rem
     .cartItemWrapper
         width: 1024px
         max-width: 90vw
@@ -13,20 +14,23 @@
         flex-direction: column
         .cartItem
             display: flex
-            border-bottom: 1px solid
-            padding: 5px
+            padding: 8px
+            background-color: #ffffff
+            margin: 5px 0
+            border-radius: 10px
             .itemImage
                 display: flex
                 align-items: center
-                width: 200px
+                width: 120px
                 img
                     border-radius: 5px
             .itemContent
-                width: calc(100% - 300px)
-                padding: 10px 15px
+                width: calc(100% - 220px)
+                padding: 5px 15px
                 .itemTitle
                     font-size: 1.1rem
                     font-weight: 600
+                    // color: #426488
             .itemPrice
                 display: flex
                 align-items: center
@@ -35,8 +39,10 @@
                 padding: 10px 15px
                 font-size: 1rem
                 font-weight: 600
+                color: #8b0000
         .cartTotal
             padding: 20px 15px
             font-size: 1.3rem
             font-weight: 600
             text-align: right
+            color: #8b0000
